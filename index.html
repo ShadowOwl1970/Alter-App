@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Alter — Character Manager for Root</title>
+
+  <meta
+    name="description"
+    content="Alter is a character management and proxy app for roleplayers on Root."
+  />
+
+  <style>
+    :root {
+      --violet: #725cf3;
+      --lavender: #9b8aff;
+      --midnight: #101116;
+      --panel: #18191f;
+      --panel-light: #22232b;
+      --text: #f7f7f9;
+      --muted: #8f92a0;
+      --border: #2c2e37;
+      --success: #8fd6a5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(114, 92, 243, 0.2),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at bottom left,
+          rgba(155, 138, 255, 0.08),
+          transparent 30%
+        ),
+        var(--midnight);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-shell {
+      min-height: 100vh;
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(
+          135deg,
+          var(--lavender),
+          var(--violet)
+        );
+      font-size: 22px;
+      font-weight: 800;
+      box-shadow:
+        0 8px 28px
+        rgba(114, 92, 243, 0.28);
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 110px 0 90px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--lavender);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 720px;
+      font-size: clamp(48px, 7vw, 86px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .gradient-text {
+      background:
+        linear-gradient(
+          120deg,
+          #ffffff,
+          #c7bcff 45%,
+          var(--violet)
+        );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 19px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      transition:
+        transform 0.15s ease,
+        background 0.15s ease,
+        border-color 0.15s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      background: var(--violet);
+      color: white;
+      box-shadow:
+        0 10px 30px
+        rgba(114, 92, 243, 0.25);
+    }
+
+    .button-primary:hover {
+      background: #816cf8;
+    }
+
+    .button-secondary {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: #d8d9df;
+    }
+
+    .button-secondary:hover {
+      border-color: #4a4c58;
+      background: var(--panel-light);
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 430px;
+      border: 1px solid rgba(155, 138, 255, 0.2);
+      border-radius: 28px;
+      background:
+        radial-gradient(
+          circle at 70% 20%,
+          rgba(155, 138, 255, 0.28),
+          transparent 32%
+        ),
+        linear-gradient(
+          145deg,
+          #191a22,
+          #101116
+        );
+      box-shadow:
+        0 30px 90px
+        rgba(0, 0, 0, 0.35);
+      display: grid;
+      place-items: center;
+      padding: 48px;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -80px;
+      bottom: -120px;
+      border-radius: 50%;
+      border: 1px solid rgba(155, 138, 255, 0.25);
+      box-shadow:
+        0 0 120px
+        rgba(114, 92, 243, 0.25);
+    }
+
+    .logo-placeholder {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .large-mark {
+      width: 160px;
+      height: 160px;
+      border-radius: 28px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 28px;
+      background:
+        linear-gradient(
+          135deg,
+          #af9fff,
+          #725cf3
+        );
+      color: white;
+      font-size: 82px;
+      font-weight: 800;
+      box-shadow:
+        0 24px 70px
+        rgba(114, 92, 243, 0.3);
+    }
+
+    .logo-placeholder h2 {
+      margin: 0;
+      font-size: 36px;
+      letter-spacing: 0.22em;
+    }
+
+    .logo-placeholder p {
+      margin: 8px 0 0;
+      color: var(--lavender);
+      letter-spacing: 0.1em;
+      font-size: 14px;
+    }
+
+    .section {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 80px 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 36px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .section-heading p {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .feature-card {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(24, 25, 31, 0.84);
+      padding: 24px;
+    }
+
+    .feature-number {
+      color: var(--lavender);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+    }
+
+    .feature-card h3 {
+      margin: 18px 0 8px;
+      font-size: 20px;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .about-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .about-card {
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--panel);
+      padding: 30px;
+    }
+
+    .about-card h3 {
+      margin: 0 0 12px;
+      font-size: 22px;
+    }
+
+    .about-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      color: var(--success);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow:
+        0 0 14px
+        rgba(143, 214, 165, 0.65);
+    }
+
+    .footer {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 34px 0 46px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: #686b77;
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer a:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 70px;
+      }
+
+      .hero-card {
+        min-height: 360px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .nav {
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 6px;
+      }
+
+      .hero {
+        padding:
+          60px 0 70px;
+      }
+
+      .hero-copy {
+        font-size: 16px;
+      }
+
+      .hero-card {
+        min-height: 300px;
+        padding: 30px;
+      }
+
+      .large-mark {
+        width: 120px;
+        height: 120px;
+        font-size: 62px;
+      }
+
+      .footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site-shell">
+    <nav class="nav">
+      <a class="brand" href="./">
+        <div class="brand-mark">A</div>
+
+        <div>
+          <div class="brand-name">
+            ALTER
+          </div>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="#features">
+          Features
+        </a>
+
+        <a href="./privacy.html">
+          Privacy
+        </a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">
+            Built for roleplayers on Root
+          </p>
+
+          <h1>
+            Many characters.
+            <span class="gradient-text">
+              One voice.
+            </span>
+          </h1>
+
+          <p class="hero-copy">
+            Alter is a character management and proxy app
+            built for roleplayers on Root. Create your
+            characters, organize your library, and seamlessly
+            speak as them across your communities.
+          </p>
+
+          <div class="hero-actions">
+            <a
+              class="button button-primary"
+              href="#features"
+            >
+              Explore Alter
+            </a>
+
+            <a
+              class="button button-secondary"
+              href="./privacy.html"
+            >
+              Privacy Policy
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="logo-placeholder">
+            <div class="large-mark">
+              A
+            </div>
+
+            <h2>
+              ALTER
+            </h2>
+
+            <p>
+              MANY CHARACTERS. ONE VOICE.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section"
+        id="features"
+      >
+        <div class="section-heading">
+          <p class="eyebrow">
+            Character management made simple
+          </p>
+
+          <h2>
+            Stay focused on the story.
+          </h2>
+
+          <p>
+            Alter brings your character library and proxying
+            tools together in one place so switching identities
+            during roleplay feels effortless.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-number">
+              01
+            </div>
+
+            <h3>
+              Manage Characters
+            </h3>
+
+            <p>
+              Create, edit, organize, search, and delete
+              characters from a dedicated Character Manager.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-number">
+              02
+            </div>
+
+            <h3>
+              Custom Proxies
+            </h3>
+
+            <p>
+              Give characters prefixes, suffixes, and aliases
+              so you can quickly switch between them while
+              roleplaying.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-number">
+              03
+            </div>
+
+            <h3>
+              Autoproxy
+            </h3>
+
+            <p>
+              Select an active character and let Alter
+              automatically proxy normal messages while you
+              stay immersed in the scene.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-number">
+              04
+            </div>
+
+            <h3>
+              Character Avatars
+            </h3>
+
+            <p>
+              Give every character an avatar so your library
+              remains easy to recognize and visually organized.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-number">
+              05
+            </div>
+
+            <h3>
+              Character Groups
+            </h3>
+
+            <p>
+              Organize characters into groups for campaigns,
+              casts, fandoms, stories, or whatever fits your
+              roleplay.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-number">
+              06
+            </div>
+
+            <h3>
+              Root Account Linking
+            </h3>
+
+            <p>
+              Link your Character Manager with your Root
+              account so Alter knows which character library
+              belongs to you.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="about-panel">
+          <article class="about-card">
+            <h3>
+              Built specifically for Root
+            </h3>
+
+            <p>
+              Alter is designed around Root communities and
+              roleplay workflows rather than adapting a tool
+              made for another platform.
+            </p>
+
+            <div class="status">
+              <span class="status-dot"></span>
+              Version 1.0
+            </div>
+          </article>
+
+          <article class="about-card">
+            <h3>
+              Privacy first
+            </h3>
+
+            <p>
+              Alter only processes and stores information
+              needed to provide character management,
+              account linking, proxying, and related features.
+            </p>
+
+            <div class="hero-actions">
+              <a
+                class="button button-secondary"
+                href="./privacy.html"
+              >
+                Read Privacy Policy
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        © 2026 Alter. Many characters. One voice.
+      </div>
+
+      <div class="footer-links">
+        <a href="./privacy.html">
+          Privacy
+        </a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

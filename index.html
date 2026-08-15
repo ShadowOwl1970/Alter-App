@@ -261,22 +261,17 @@
     .large-mark {
       width: 160px;
       height: 160px;
-      border-radius: 28px;
-      display: grid;
-      place-items: center;
       margin-bottom: 28px;
-      background:
-        linear-gradient(
-          135deg,
-          #af9fff,
-          #725cf3
-        );
-      color: white;
-      font-size: 82px;
-      font-weight: 800;
+      background: transparent;
       box-shadow:
         0 24px 70px
         rgba(114, 92, 243, 0.3);
+    }
+
+    .large-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .logo-placeholder h2 {
@@ -467,6 +462,12 @@
       }
     }
   </style>
+  
+  <link
+    rel="icon"
+    type="image/png"
+    href="./alter-icon.png"
+  />
 </head>
 
 <body>
@@ -537,7 +538,10 @@
         <div class="hero-card">
           <div class="logo-placeholder">
             <div class="large-mark">
-              A
+              <img
+                src="./alter-icon.png"
+                alt="Alter logo"
+              />
             </div>
 
             <h2>

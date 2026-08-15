@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Privacy Policy — Alter</title>
+
+  <meta
+    name="description"
+    content="Privacy Policy for Alter, a character management and proxy app for Root."
+  />
+
+  <style>
+    :root {
+      --violet: #725cf3;
+      --lavender: #9b8aff;
+      --midnight: #101116;
+      --panel: #18191f;
+      --text: #f7f7f9;
+      --muted: #8f92a0;
+      --border: #2c2e37;
+      --success: #8fd6a5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(114, 92, 243, 0.16),
+          transparent 28%
+        ),
+        var(--midnight);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--lavender);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: white;
+    }
+
+    .nav {
+      width: min(1000px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background:
+        linear-gradient(
+          135deg,
+          var(--lavender),
+          var(--violet)
+        );
+      color: white;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-link {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .page {
+      width: min(900px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 70px 0 90px;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--lavender);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 68px);
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .intro {
+      max-width: 720px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .meta {
+      margin-top: 28px;
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(24, 25, 31, 0.85);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .meta strong {
+      color: var(--text);
+    }
+
+    .policy {
+      margin-top: 42px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .policy-section {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(24, 25, 31, 0.86);
+      padding: 26px;
+    }
+
+    .policy-section h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+    }
+
+    .policy-section p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .policy-section p + p {
+      margin-top: 14px;
+    }
+
+    .policy-section ul {
+      margin: 14px 0 0;
+      padding-left: 22px;
+      color: var(--muted);
+    }
+
+    .policy-section li + li {
+      margin-top: 7px;
+    }
+
+    .note {
+      margin-top: 18px;
+      padding: 15px 17px;
+      border-left: 3px solid var(--violet);
+      background: rgba(114, 92, 243, 0.08);
+      color: #b8bac5;
+      border-radius: 0 10px 10px 0;
+    }
+
+    .footer {
+      width: min(900px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 30px 0 44px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: #686b77;
+      font-size: 13px;
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        padding-top: 48px;
+      }
+
+      .policy-section {
+        padding: 21px;
+      }
+
+      .footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav">
+    <a class="brand" href="./">
+      <div class="brand-mark">
+        A
+      </div>
+
+      <div class="brand-name">
+        ALTER
+      </div>
+    </a>
+
+    <a class="nav-link" href="./">
+      Back to Home
+    </a>
+  </nav>
+
+  <main class="page">
+    <p class="eyebrow">
+      Legal
+    </p>
+
+    <h1>
+      Privacy Policy
+    </h1>
+
+    <p class="intro">
+      Alter is a character management and proxy application
+      designed for roleplayers using Root. This Privacy Policy
+      explains what information Alter processes, why that
+      information is used, and how Alter handles character and
+      account-related data.
+    </p>
+
+    <div class="meta">
+      <strong>Effective Date:</strong>
+      August 15, 2026
+      <br />
+
+      <strong>Last Updated:</strong>
+      August 15, 2026
+    </div>
+
+    <div class="policy">
+      <section class="policy-section">
+        <h2>
+          1. Information Alter Processes
+        </h2>
+
+        <p>
+          Alter processes information that is necessary to
+          provide its character management and proxy features.
+        </p>
+
+        <ul>
+          <li>
+            Root account or user identifiers used for account
+            linking and character ownership.
+          </li>
+
+          <li>
+            Character names.
+          </li>
+
+          <li>
+            Character avatar URLs or stored avatar references.
+          </li>
+
+          <li>
+            Character prefixes, suffixes, and aliases.
+          </li>
+
+          <li>
+            Character groups and organizational information.
+          </li>
+
+          <li>
+            Autoproxy preferences and related Alter settings.
+          </li>
+
+          <li>
+            Temporary account-linking codes used to connect the
+            Character Manager with a Root account.
+          </li>
+
+          <li>
+            Messages in Root channels where Alter has access,
+            when necessary to determine whether a message
+            contains a proxy, command, or active autoproxy
+            message.
+          </li>
+        </ul>
+      </section>
+
+      <section class="policy-section">
+        <h2>
+          2. How Alter Uses Information
+        </h2>
+
+        <p>
+          Alter uses information only as needed to provide and
+          maintain its features.
+        </p>
+
+        <ul>
+          <li>
+            Creating and maintaining character libraries.
+          </li>
+
+          <li>
+            Linking a Root account to a Character Manager.
+          </li>
+
+          <li>
+            Identifying character prefixes, suffixes, and
+            aliases.
+          </li>
+
+          <li>
+            Processing manual proxy and autoproxy messages.
+          </li>
+
+          <li>
+            Organizing characters into groups.
+          </li>
+
+          <li>
+            Maintaining user-selected Alter preferences.
+          </li>
+        </ul>
+
+        <div class="note">
+          Alter does not sell personal information or use
+          character or account information for advertising.
+        </div>
+      </section>
+
+      <section class="policy-section">
+        <h2>
+          3. Message Processing
+        </h2>
+
+        <p>
+          Alter may process messages posted in Root channels
+          where the application has access. This processing is
+          used to determine whether a message should be handled
+          as a character proxy, command, or autoproxy message.
+        </p>
+
+        <p>
+          When a character proxy is successfully triggered,
+          Alter may create a new channel message representing
+          the selected character and remove the user's original
+          proxy message when the application has permission to
+          do so.
+        </p>
+
+        <p>
+          Alter is not designed to maintain a separate archive
+          of ordinary Root conversations.
+        </p>
+      </section>
+
+      <section class="policy-section">
+        <h2>
+          4. Character Data
+        </h2>
+
+        <p>
+          Character information may be stored so that character
+          libraries remain available between sessions.
+        </p>
+
+        <p>
+          Users can create, edit, and delete characters through
+          the Alter Character Manager. Character data may
+          include names, avatars, proxy settings, aliases,
+          groups, and related configuration.
+        </p>
+      </section>
+
+      <section class="policy-section">
+        <h2>
+          5. Account Linking
+        </h2>
+
+        <p>
+          Alter uses account linking so that the Character
+          Manager can be associated with the correct Root user.
+          A temporary linking code may be generated and entered
+          in a Root text channel.
+        </p>
+
+        <p>
+          After successful linking, Alter stores the identifiers
+          needed to associate that Root account with the
+          corresponding Character Manager data.
+        </p>
+
+        <p>
+          Temporary link codes expire and are intended for
+          one-time account linking.
+        </p>
+      </section>
+
+      <section class="policy-section">
+        <h2>
+          6. Character Avatars
+        </h2>
+
+        <p>
+          Alter may allow users to provide image URLs or other
+          supported image references for character avatars.
+        </p>
+
+        <p>
+          If an avatar is hosted by an external website or
+          service, that service may receive normal network
+          information when the image is requested. External
+          image hosts operate under their own privacy policies
+          and terms.
+        </p>
+      </section>
+
+      <section class="policy-section">
+        <h2>
+          7. Third-Party Services
+        </h2>
+
+        <p>
+          Alter operates on the Root platform and relies on
+          Root's services and APIs to provide its functionality.
+          Use of Root is also subject to Root's own terms,
+          policies, and privacy practices.
+        </p>
+
+        <p>
+          Alter may also display externally hosted character
+          images when users provide image URLs.
+        </p>
+      </section>
+
+      <section class="policy-section">
+        <h2>
+          8. Data Sharing
+        </h2>
+
+        <p>
+          Alter does not sell or rent user information.
+        </p>
+
+        <p>
+          Information may be processed through Root as required
+          for Alter to function. Information may also be
+          disclosed when required by applicable law or when
+          reasonably necessary to protect Alter, its developer,
+          its users, or the integrity of its services.
+        </p>
+      </section>
+
+      <section class="policy-section">
+        <h2>
+          9. Data Security
+        </h2>
+
+        <p>
+          Reasonable efforts are made to limit the information
+          Alter processes and stores to what is necessary for
+          application functionality.
+        </p>
+
+        <p>
+          However, no electronic storage or transmission system
+          can guarantee absolute security.
+        </p>
+      </section>
+
+      <section class="policy-section">
+        <h2>
+          10. Children's Privacy
+        </h2>
+
+        <p>
+          Alter is not designed to independently collect
+          personal information from children. Use of Alter is
+          subject to Root's platform requirements, terms, and
+          applicable age restrictions.
+        </p>
+      </section>
+
+      <section class="policy-section">
+        <h2>
+          11. Changes to This Policy
+        </h2>
+
+        <p>
+          This Privacy Policy may be updated when Alter's
+          features or data practices change.
+        </p>
+
+        <p>
+          When material changes are made, the Last Updated date
+          at the top of this page will be revised.
+        </p>
+      </section>
+
+      <section class="policy-section">
+        <h2>
+          12. Contact
+        </h2>
+
+        <p>
+          Questions, privacy concerns, or requests related to
+          Alter can be directed to the Alter developer through
+          Alter's official Root support or community channels.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div>
+      © 2026 Alter. Many characters. One voice.
+    </div>
+
+    <div>
+      <a href="./">
+        Home
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
